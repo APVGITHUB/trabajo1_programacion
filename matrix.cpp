@@ -34,7 +34,7 @@ void Matrix::print_matrix()
 
 void Matrix::fill_matrix(){
 	int m;
-  int a[2][3]={{1,2},
+  int a[2][2]={{1,2},
                {3,4}};
 
   int b[3][3]={{1,2,3},
