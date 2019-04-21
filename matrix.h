@@ -7,11 +7,11 @@ class Matrix {
         Matrix(int);
         ~Matrix();
 		 void fill_matrix();
-		 void copy_matrix(int);
 		 void print_matrix();
 		 void set_dimension(int);
-
+		 
 	private:
-    int exp;
+        int **m_matrix;
+		int exp;
 		int N;
 };
