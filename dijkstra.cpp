@@ -1,26 +1,27 @@
-#define MAX_NODOS 1024 /* número máximo de nodos */
+/* Algoritmo estándar de dijkstra en c++*/
+
+#include "matrix.h"
+
+
 #define INFINITO 1000000000 /* un número mayor que cualquier ruta máxima */
-int n,i,k,minimo, dist[MAX_NODOS][MAX_NODOS]; /* dist[i][j] es la distancia de i a j */
 
-struct nodo { /* Indica eL estado del nodo,la ruta y quien lo precede a dicho nodo */
-	int predecesor; /* nodo previo */
-	int longitud; /* longitud del origen a este nodo */
-	bool etiqueta;	/*verdadero para un nodo permanente y falso para nodo tentativo*/
-} nodo[MAX_NODOS];
+extern int m_matrix[][];
+extern int path[];
+const int n=sizeof(m_matrix)/sizeof(m_matrix[0]);
+int i,k,minimo; /* m_matrix[i][j] es la distancia de i a j */
 
-void inicializacion(){
-	for (p = &nodo[0]; p < &nodo[n]; p++) { /* estado de inicialización*/
-	        p->predecesor = -1;
-	        p->longitud = INFINITO;
-	        p->etiqueta = false;
-        }
-}
+struct nodo { /* Indica el estado del nodo,la ruta y quien lo precede a dicho nodo */
+	int predecesor=-1; /* nodo previo */
+	int longitud=INFINITO; /* longitud del origen a este nodo */
+	bool etiqueta=false;	/*verdadero para un nodo permanente y falso para nodo tentativo*/
+} nodo[n];
+
 void relajar(){
 	for (int i = 0; i <n; i++){ /* este grafo tiene n nodos */
-	        if (dist[k][i] != 0 && nodo[i].etiqueta == false) {
-		        if (nodo[k].longitud + dist[k][i] < nodo[i].longitud) {
+	        if (m_matrix[k][i] != 0 && nodo[i].etiqueta == false) {
+		        if (nodo[k].longitud + m_matrix[k][i] < nodo[i].longitud) {
 			        nodo[i].predecesor = k;
-		                nodo[i].longitud = nodo[k].longitud + dist[k][i];
+		                nodo[i].longitud = nodo[k].longitud + m_matrix[k][i];
 		        }
                 }
         }
@@ -36,39 +37,21 @@ void extraer_minimo(){ 	/* Encuentra los nodo etiquetados tentativamente y deter
 	}
 }
 
-void camino_corto(int s, int t, int camino[]) {
-	inicializacion();
-	nodo[t].longitud = 0; nodo[t].etiqueta = true;
-	k = t; /* k es el nodo de trabajo inicial */
-	do{ /* ¿hay una ruta mejor desde k? */
+void calcular(int start, int end, int camino[]) {
+	nodo[start].longitud = 0;
+	nodo[start].etiqueta = true;
+	k = start;
+	do{ /*Recursion  */
 		relajar();
 		extraer_minimo();
 		nodo[k].etiqueta = true;
-	} while (k != s);
-	/* Copia la ruta en el arreglo de salida y procede a ir imprimiendolo. */
-	i = 0; k = s;
-	cout<< "La ruta es: ";
-	do {
-		cout<< k<< " ";
-		camino[i] = k;
+	} while (k != end);
+	i = 0;
+	k = end;
+	do { /* Aqui se obtiene el vector que indica el camino correcto */
+		path[i] = k;
 		k = nodo[k].predecesor;
 		i++;
+		cout << k << endl;
 	} while (k >= 0);
-	cout <<"La ruta minima es: "<<minimo<<endl ;
-}
-int main(){
-    int nodo_final,nodo_inicial,arista;
-    //solicita o ingresa directamente los valores de nodo_final,nodo_inicial
-    //Llenar de 0 la matriz
-    for (int i=0; i<n; i++){
-	    for( int j=0; j<n; j++){
-	        dist[i][j]=0;
-	    }
-    }
-    // Llenar la matriz dist[i][j]
-    /*............................
-    ............................*/
-    //Por ultimo llamar a la función camino corto
-       camino_corto(nodo_final,nodo_inicial,camino)
-    return 0;
 }
