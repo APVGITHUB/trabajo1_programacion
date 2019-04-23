@@ -1,8 +1,9 @@
 #include <iostream>
 #include "dijkstra.cpp"
 #include <time.h>
-
+#include <chrono>
 using namespace std;
+
 int main(){
 	double time_taken=0;
 	clock_t start,end;
@@ -14,10 +15,10 @@ int main(){
 	cout << endl;
 	fill_matrix();
 	print_matrix();
-	start=clock();
+	auto start= chrono::steady_clock::now()
 	calcular_dij(0,9);
-	end=clock();
-	time_taken=end-start;	
-	cout << time_taken << endl;
+	auto end= chrono::steady_clock::now()
+	double elapsed_time = double(chrono::duration_cast<chrono::nanoseconds>(end-start).count());
+	cout << elapsed_time << "nanoseconds " << endl;
 	return 0;
 }
