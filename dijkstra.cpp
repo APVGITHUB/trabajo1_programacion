@@ -43,11 +43,12 @@ void calcular_dij(int start, int end) {
 	} while (k != end);
 	i = 0;
 	k = end;
+	cout << "Path: ";
 	do { /* Aqui se obtiene el vector que indica el camino correcto */
 		path[i] = k;
 		cout << k << " ";
 		k = nodo[k].predecesor;
 		i++;
 	} while (k >= 0);
-	cout << endl;
+	cout << "Length: " << nodo[DIM-1].longitud << endl;
 }
