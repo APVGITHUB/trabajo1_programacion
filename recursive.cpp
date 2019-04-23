@@ -15,13 +15,7 @@ class node{
 	 int get_father(){
 	 	return father;
 	 }
-	 int get_length(){
-	 	if(length==-1){/*esto es para no tener que recalcular la distancia en cada llamada al nodo*/
-		length=find_shortest(number);
-		father=temp;
-		}
-		return number;
-	 }
+	 int get_length();
 	 void init(){/*define el nodo de inicio*/
 	  	length=0;
 	  }
@@ -44,6 +38,16 @@ int find_shortest(int k){/*k es el nodo que se esta evaluando*/
   }
   return curr_lenght;
 }
+
+ int node::get_length(){
+ 	if(length==-1){/*esto es para no tener que recalcular la distancia en cada llamada al nodo*/
+		length=8888;
+		length=find_shortest(number);
+		father=temp;
+	}
+return number;
+ } 
+
 void calcular_rec(){
 
 	for(i=0;i<n;i++){
