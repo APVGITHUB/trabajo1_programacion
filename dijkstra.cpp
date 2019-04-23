@@ -5,10 +5,10 @@
 
 #define INFINITO 1000000000 /* un número mayor que cualquier ruta máxima */
 
-extern int m_matrix[][];
+extern int m_matrix[][];/* m_matrix[i][j] es la distancia de i a j */
 extern int path[];
 const int n=sizeof(m_matrix)/sizeof(m_matrix[0]);
-int i,k,minimo; /* m_matrix[i][j] es la distancia de i a j */
+int i,k,minimo;
 
 struct nodo { /* Indica el estado del nodo,la ruta y quien lo precede a dicho nodo */
 	int predecesor=-1; /* nodo previo */
@@ -41,7 +41,7 @@ void calcular(int start, int end) {
 	nodo[start].longitud = 0;
 	nodo[start].etiqueta = true;
 	k = start;
-	do{ /*Recursion  */
+	do{
 		relajar();
 		extraer_minimo();
 		nodo[k].etiqueta = true;
@@ -52,6 +52,5 @@ void calcular(int start, int end) {
 		path[i] = k;
 		k = nodo[k].predecesor;
 		i++;
-		cout << k << endl;
 	} while (k >= 0);
 }
