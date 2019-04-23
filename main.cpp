@@ -1,19 +1,23 @@
 #include <iostream>
-#include <conio.h>
-#include "matrix.h"
+#include "dijkstra.cpp"
+#include <time.h>
 
 using namespace std;
-
-
-
 int main(){
+	double time_taken=0;
+	clock_t start,end;
+	
+
 	int ejemplo=0;
 	cout<<"Elija un experimento: ";
 	cin>>ejemplo;
 	cout << endl;
-	Matrix q= Matrix(ejemplo);
-	q.fill_matrix();
-	q.print_matrix();
-	/* faltaria liberar la memoria del puntero al final del programa */
+	fill_matrix();
+	print_matrix();
+	start=clock();
+	calcular_dij(0,9);
+	end=clock();
+	time_taken=end-start;	
+	cout << time_taken << endl;
 	return 0;
 }
