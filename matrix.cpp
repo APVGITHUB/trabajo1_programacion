@@ -1,7 +1,7 @@
 #include <iostream>
 #include <time.h>
 #define DIM 10	/* dimension maxima del espacio reservado para la matriz */
-#define x 12			/* distancia maxima entre puntos */
+#define x 12			/* cuanto más grande, más dispersa es la matriz */
 using namespace std;
 
 int m_matrix[DIM][DIM];
