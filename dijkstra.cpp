@@ -1,13 +1,14 @@
 /* Algoritmo estándar de dijkstra en c++*/
 
-#include "matrix.h"
+#include "matrix.cpp"
 
 
 #define INFINITO 1000000000 /* un número mayor que cualquier ruta máxima */
 
-extern int m_matrix[][];/* m_matrix[i][j] es la distancia de i a j */
-extern int path[];
-const int n=sizeof(m_matrix)/sizeof(m_matrix[0]);
+extern int m_matrix[DIM][DIM];/* m_matrix[i][j] es la distancia de i a j */
+int path[100];
+const int n=N;
+extern int m_matrix[n][n];
 int i,k,minimo;
 
 struct nodo { /* Indica el estado del nodo,la ruta y quien lo precede a dicho nodo */
@@ -50,7 +51,9 @@ void calcular_dij(int start, int end) {
 	k = end;
 	do { /* Aqui se obtiene el vector que indica el camino correcto */
 		path[i] = k;
+		cout << k << " ";
 		k = nodo[k].predecesor;
 		i++;
-	} while (k > 0);
+	} while (k >= 0);
+	cout << endl;
 }
