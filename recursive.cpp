@@ -59,6 +59,7 @@ void calcular_rec(){
 	int k=n-1;
 	do { /* Aqui se obtiene el vector que indica el camino correcto */
 		path[i]=k;
+		cout << k << " ";
 		k = node[k].get_father();
 		i++;
 	} while (k > 0);
