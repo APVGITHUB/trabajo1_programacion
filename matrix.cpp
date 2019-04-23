@@ -1,13 +1,14 @@
 #include <iostream>
-#include <time.h>	
+#include <time.h>
 #define DIM 10	/* dimension maxima del espacio reservado para la matriz */
 #define x 9				/* distancia maxima entre puntos */
 using namespace std;
 
-int exp=0;
 int m_matrix[DIM][DIM];
 int m=DIM;
-
+int path[100];
+const int n=DIM;//sizeof(m_matrix)/sizeof(m_matrix[0]);
+int i,k,minimo;
 
 void print_matrix(){		/* imprime la matriz */
     for (int i = 0; i < m; i++) {
@@ -21,7 +22,7 @@ void print_matrix(){		/* imprime la matriz */
 
 
 
-void fill_matrix(){		/* llena la matriz segun el experimento */ 
+void fill_matrix(){		/* llena la matriz segun el experimento */
 
   int a[2][2]={{1,2},
                {3,4}};
@@ -50,9 +51,9 @@ void fill_matrix(){		/* llena la matriz segun el experimento */
 			srand(time(NULL));
 			for (int i = 0; i < m; i++) {
 				for (int j = 0; j < m; j++){
-					if (i==j) 
+					if (i==j)
 						m_matrix[i][j] = 0;
-					else 
+					else
 						m_matrix[i][j] = rand()%(x+1);
 				}
 			}
@@ -62,5 +63,4 @@ void fill_matrix(){		/* llena la matriz segun el experimento */
 				}
 			}
 	}
-}	
-	
+}
