@@ -1,7 +1,7 @@
 #include <iostream>
 #include <time.h>
 #define DIM 10	/* dimension maxima del espacio reservado para la matriz */
-#define x 9				/* distancia maxima entre puntos */
+#define x 12			/* distancia maxima entre puntos */
 using namespace std;
 
 int m_matrix[DIM][DIM];
@@ -23,38 +23,16 @@ void print_matrix(){		/* imprime la matriz */
 
 
 void fill_matrix(){		/* llena la matriz segun el experimento */
-
-  int a[2][2]={{1,2},
-               {3,4}};
-
-  int b[3][3]={{1,2,3},
-               {4,5,6},
-               {7,8,9}};
-
-	switch (2){
-		case 0: m=2;
-			for (int i = 0; i < m; i++) {
-				for (int j = 0; j < m; j++) {
-					m_matrix[i][j] =a[i][j];
-				}
-			}
-			break;
-		case 1: m=3;
-			for (int i = 0; i < m; i++) {
-				for (int j = 0; j < m; j++) {
-					m_matrix[i][j] =b[i][j];
-				}
-			}
-			break;
-		default:		/* experimento aleatorio -> genera matriz aleatoria */
-			cout << endl;
+		/* experimento aleatorio -> genera matriz aleatoria */
 			srand(time(NULL));
+			int r;
 			for (int i = 0; i < m; i++) {
 				for (int j = 0; j < m; j++){
-					if (i==j)
+					r=rand()%(x+1);
+					if (i==j || r>9)
 						m_matrix[i][j] = 0;
 					else
-						m_matrix[i][j] = rand()%(x+1);
+						m_matrix[i][j] = r;
 				}
 			}
 			for (int i = 0; i < m; i++) {
@@ -63,4 +41,3 @@ void fill_matrix(){		/* llena la matriz segun el experimento */
 				}
 			}
 	}
-}
