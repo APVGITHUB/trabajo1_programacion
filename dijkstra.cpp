@@ -1,15 +1,9 @@
 /* Algoritmo estándar de dijkstra en c++*/
 
-#include "matrix.cpp"
-
 
 #define INFINITO 1000000000 /* un número mayor que cualquier ruta máxima */
 
 extern int m_matrix[DIM][DIM];/* m_matrix[i][j] es la distancia de i a j */
-int path[100];
-const int n=N;
-extern int m_matrix[n][n];
-int i,k,minimo;
 
 struct nodo { /* Indica el estado del nodo,la ruta y quien lo precede a dicho nodo */
 	int predecesor=-1; /* nodo previo */
