@@ -63,14 +63,12 @@ void calcular_rec(){
 
 	i=0;
 	int k=DIM-1;
-	cout << "Path: ";
 	do { /* Aqui se obtiene el vector que indica el camino correcto */
 		path[i]=k;
-		cout << k << " ";
 		k = node[k].get_father();
 		i++;
 	} while (k >= 0);
-	cout << "Length: " << node[DIM-1].get_length();
+//	cout << "Length: " << node[DIM-1].get_length();
 }
 
 

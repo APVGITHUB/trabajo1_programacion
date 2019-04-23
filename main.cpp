@@ -1,9 +1,12 @@
 #include <iostream>
+#define DIM 256
+#define x 20    /* cuanto más grande, más dispersa es la matriz */
 #include "matrix.cpp"
 #include "dijkstra.cpp"
 #include "recursive.cpp"
 #include <time.h>
 #include <chrono>
+
 using namespace std;
 
 int main(){
