@@ -37,7 +37,7 @@ void extraer_minimo(){ 	/* Encuentra los nodo etiquetados tentativamente y deter
 	}
 }
 
-void calcular(int start, int end, int camino[]) {
+void calcular(int start, int end) {
 	nodo[start].longitud = 0;
 	nodo[start].etiqueta = true;
 	k = start;
