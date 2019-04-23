@@ -46,11 +46,16 @@ void calcular_rec(){
 	node[i].number=i;
 	}
 	node[0].init;
-	find_shortest(n);
+
+	find_shortest(n); //calculo
+
 	i=n;
-	do{
-	
-	} while(i)
+	k=end;
+	do { /* Aqui se obtiene el vector que indica el camino correcto */
+		path[i]=k;
+		k = node[k].father;
+		i++;
+	} while (k > 0);
 }
 
 

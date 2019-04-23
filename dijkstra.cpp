@@ -37,7 +37,7 @@ void extraer_minimo(){ 	/* Encuentra los nodo etiquetados tentativamente y deter
 	}
 }
 
-void calcular(int start, int end) {
+void calcular_dij(int start, int end) {
 	nodo[start].longitud = 0;
 	nodo[start].etiqueta = true;
 	k = start;
@@ -52,5 +52,5 @@ void calcular(int start, int end) {
 		path[i] = k;
 		k = nodo[k].predecesor;
 		i++;
-	} while (k >= 0);
+	} while (k > 0);
 }
