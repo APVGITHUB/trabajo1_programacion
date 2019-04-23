@@ -1,11 +1,8 @@
-#include "matrix.cpp"
 #define INF 1000000000
 
 
-extern int path[100];
-const int n=sizeof(m_matrix)/sizeof(m_matrix[0]);
 extern int m_matrix[DIM][DIM];
-int i,temp=-1;
+int temp=-1;
 
 class node{
 	private:
@@ -37,7 +34,7 @@ int find_shortest(int k){/*k es el nodo que se esta evaluando*/
 		}
 	}
   }
-  return curr_lenght;
+  return curr_length;
 }
 
  int node::get_length(){
@@ -47,7 +44,7 @@ int find_shortest(int k){/*k es el nodo que se esta evaluando*/
 		father=temp;
 	}
 return number;
- } 
+ }
 
 void calcular_rec(){
 
@@ -66,6 +63,5 @@ void calcular_rec(){
 		i++;
 	} while (k > 0);
 }
-
 
 
