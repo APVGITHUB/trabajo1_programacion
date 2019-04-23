@@ -16,7 +16,7 @@ class node{
 	 	return father;
 	 }
 	 int get_length(){
-	 	if(length!=-1){/*esto es para no tener que recalcular la distancia en cada llamada al nodo*/
+	 	if(length==-1){/*esto es para no tener que recalcular la distancia en cada llamada al nodo*/
 		length=find_shortest(number);
 		father=temp;
 		}
@@ -51,10 +51,10 @@ void calcular_rec(){
 	}
 	node[0].init();
 
-	int l=find_shortest(n); //calculo
+	int l=find_shortest(n-1); //calculo
 
 	i=0;
-	int k=n;
+	int k=n-1;
 	do { /* Aqui se obtiene el vector que indica el camino correcto */
 		path[i]=k;
 		k = node[k].get_father();
