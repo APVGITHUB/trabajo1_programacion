@@ -1,9 +1,10 @@
+#include "matrix.cpp"
 #define INF 1000000000
 
 
-extern int m_matrix[][];
-extern int path[];
+extern int path[100];
 const int n=sizeof(m_matrix)/sizeof(m_matrix[0]);
+extern int m_matrix[DIM][DIM];
 int i,temp=-1;
 
 class node{
@@ -65,5 +66,6 @@ void calcular_rec(){
 		i++;
 	} while (k > 0);
 }
+
 
 
